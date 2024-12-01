@@ -1,6 +1,9 @@
 # kumgang-otp
 OTP generator once used "in production" to generate 2of2 secure storage of highly sensitive encryption keys.
 
+old system: https://totocz.github.io/kumgang-otp/  
+gogole motyka: https://totocz.github.io/kumgang-otp/motyka.html
+
 ## As explaind by Gogole:
 
 <ol>
