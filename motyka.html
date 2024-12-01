@@ -2,276 +2,275 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>OTP ☆ Kumgang R&D</title>
-  <link rel="shortcut icon" href="/favicon.ico">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #ffe6f2;
-      /* Light pink background */
-      color: #333;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      color: #ff69b4;
-      /* Hot pink */
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 20px;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-    }
-
-    h2,
-    h3 {
-      color: #ff91c7;
-      /* Lighter pink */
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-    }
-
-    #otp_panel {
-      background-color: #fff0f5;
-      /* Lavender blush */
-      border: 2px dashed #ffb6c1;
-      /* Light pink dashed border */
-      border-radius: 15px;
-      padding: 20px;
-      width: 80%;
-      max-width: 600px;
-      margin-bottom: 20px;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    p {
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: #e0a0ff; /* Pastel purple for labels */
-    }
-
-    textarea {
-      width: calc(100% - 22px);
-      /* Adjusted for padding and border */
-      height: 8em;
-      border: 2px solid #ffb6c1;
-      /* Light pink border */
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 15px;
-      resize: vertical;
-      background-color: #fff;
-      /* White background */
-    }
-
-    input[type="button"] {
-      background-color: #ffb6c1;
-      /* Light pink */
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-      margin: 5px;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-    }
-
-    input[type="button"]:hover {
-      background-color: #ff69b4;
-      /* Hot pink */
-      transform: scale(1.05);
-    }
-
-    img {
-      width: 100px;
-      margin-top: 20px;
-    }
-
-    h2 {
-      border-top: 1px dashed #ffb6c1;
-      padding-top: 11px;
-      margin-top: 20px;
-    }
-
-    ol {
-      padding-left: 20px;
-    }
-
-    a {
-      color: #ff91c7;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    textarea { 
-      font-family: monospace;
-      white-space: pre-wrap;
-      text-align: justify;
-    }
-  </style>
-
-  <script type="text/javascript">
-    const encodeChars = {
-      "A": "1", "E": "2", "I": "3", "N": "4", "O": "5", "R": "6",
-      "B": "70", "C": "71", "D": "72", "F": "73", "G": "74", "H": "75",
-      "J": "76", "K": "77", "L": "78", "M": "79", "P": "80", "Q": "81",
-      "S": "82", "T": "83", "U": "84", "V": "85", "W": "86", "X": "87",
-      "Y": "88", "Z": "89", " ": "90", ".": "91", ",": "92", ":": "93",
-      "?": "94", "/": "95", "(": "96", ")": "97", "\"": "98", "0": "00",
-      "1": "01", "2": "02", "3": "03", "4": "04", "5": "05", "6": "06",
-      "7": "07", "8": "08", "9": "09"
-    };
-  
-    const decodeChars = {
-      "1": "A", "2": "E", "3": "I", "4": "N", "5": "O", "6": "R",
-      "70": "B", "71": "C", "72": "D", "73": "F", "74": "G", "75": "H",
-      "76": "J", "77": "K", "78": "L", "79": "M", "80": "P", "81": "Q",
-      "82": "S", "83": "T", "84": "U", "85": "V", "86": "W", "87": "X",
-      "88": "Y", "89": "Z", "90": " ", "91": ".", "92": ",", "93": ":",
-      "94": "?", "95": "/", "96": "(", "97": ")", "98": "\"", "00": "0",
-      "01": "1", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6",
-      "07": "7", "08": "8", "09": "9"
-    };
-  
-    function getRandomOTP() {
-      const key = window.crypto.getRandomValues(new Uint32Array(27)).join("").match(/.{1,5}/g);
-      let otp = "";
-      for (let i = 0; i < 50; i++) {
-        otp += key[i % key.length] + " ";
-        if ((i + 1) % 10 === 0) otp += "\n";
-      }
-      document.getElementById("otp").value = otp;
-    }
-  
-    function encrypt() {
-        const input = document.getElementById("input").value.toUpperCase();
-        const otp = document.getElementById("otp").value.replace(/[ \n]/g, "");
-
-        if (!/^[0-9]+$/.test(otp)) {
-            alert("Invalid OTP. It should consist of numeric digits.");
-            return;
+    <meta charset="UTF-8">
+    <title>OTP ☆ Kumgang R&D</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f2;
+            /* Light pink background */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        let numeralized = "";
-        for (let char of input) {
-            numeralized += encodeChars[char] || encodeChars["."];
+        h1 {
+            color: #ff69b4;
+            /* Hot pink */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
         }
 
-        const paddingLength = (5 - (numeralized.length % 5)) % 5;
-        numeralized += "0".repeat(paddingLength);
-
-        if (otp.length < numeralized.length) {
-            alert("Your OTP is too short to encode this message.");
-            return;
+        h2,
+        h3 {
+            color: #ff91c7;
+            /* Lighter pink */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
         }
 
-        let output = "";
-        for (let i = 0; i < numeralized.length; i++) {
-            let num = parseInt(numeralized[i]) - parseInt(otp[i]);
-            if (num < 0) num += 10;
-            output += num;
+        #otp_panel {
+            background-color: #fff0f5;
+            /* Lavender blush */
+            border: 2px dashed #ffb6c1;
+            /* Light pink dashed border */
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
         }
 
-        const formattedOutput = output.match(/.{1,5}/g).join(" ").replace(/((?:\S+\s+){9}\S+)\s+/g, "$1\n");
-        document.getElementById("output").value = formattedOutput;
-    }
-  
-    function decrypt() {
-      const input = document.getElementById("input").value.replace(/[ \n]/g, "");
-      const otp = document.getElementById("otp").value.replace(/[ \n]/g, "");
-  
-      if (!/^[0-9]+$/.test(input)) {
-        alert("Invalid input. It should consist of numeric digits.");
-        return;
-      }
-      if (!/^[0-9]+$/.test(otp)) {
-        alert("Invalid OTP. It should consist of numeric digits.");
-        return;
-      }
-  
-      if (otp.length < input.length) {
-            alert("Your OTP is too short for this message.");
-            return;
-      }
-  
-      let outputNumbers = "";
-      for (let i = 0; i < input.length; i++) {
-        let num = parseInt(input[i]) + parseInt(otp[i]);
-        if (num > 9) num -= 10;
-        outputNumbers += num;
-      }
-  
-      let outputText = "";
-      let i = 0;
-      while (i < outputNumbers.length) {
-        let matched = false;
-        for (let len = 2; len >= 1; len--) {
-          if (i + len <= outputNumbers.length) {
-            const chars = outputNumbers.substr(i, len);
-            if (decodeChars[chars] !== undefined) {
-              outputText += decodeChars[chars];
-              i += len;
-              matched = true;
-              break;
+        p {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #e0a0ff;
+            /* Pastel purple for labels */
+        }
+
+        textarea {
+            width: calc(100% - 22px);
+            /* Adjusted for padding and border */
+            height: 8em;
+            border: 2px solid #ffb6c1;
+            /* Light pink border */
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            resize: vertical;
+            background-color: #fff;
+            /* White background */
+        }
+
+        input[type="button"] {
+            background-color: #ffb6c1;
+            /* Light pink */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 5px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        input[type="button"]:hover {
+            background-color: #ff69b4;
+            /* Hot pink */
+            transform: scale(1.05);
+        }
+
+        img {
+            width: 100px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            border-top: 1px dashed #ffb6c1;
+            padding-top: 11px;
+            margin-top: 20px;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        a {
+            color: #ff91c7;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        textarea {
+            font-family: monospace;
+            white-space: pre-wrap;
+            text-align: justify;
+        }
+    </style>
+
+    <script type="text/javascript">
+        const encodeChars = {
+            "A": "1", "E": "2", "I": "3", "N": "4", "O": "5", "R": "6",
+            "B": "70", "C": "71", "D": "72", "F": "73", "G": "74", "H": "75",
+            "J": "76", "K": "77", "L": "78", "M": "79", "P": "80", "Q": "81",
+            "S": "82", "T": "83", "U": "84", "V": "85", "W": "86", "X": "87",
+            "Y": "88", "Z": "89", " ": "90", ".": "91", ",": "92", ":": "93",
+            "?": "94", "/": "95", "(": "96", ")": "97", "\"": "98", "0": "00",
+            "1": "01", "2": "02", "3": "03", "4": "04", "5": "05", "6": "06",
+            "7": "07", "8": "08", "9": "09"
+        };
+
+        const decodeChars = {
+            "1": "A", "2": "E", "3": "I", "4": "N", "5": "O", "6": "R",
+            "70": "B", "71": "C", "72": "D", "73": "F", "74": "G", "75": "H",
+            "76": "J", "77": "K", "78": "L", "79": "M", "80": "P", "81": "Q",
+            "82": "S", "83": "T", "84": "U", "85": "V", "86": "W", "87": "X",
+            "88": "Y", "89": "Z", "90": " ", "91": ".", "92": ",", "93": ":",
+            "94": "?", "95": "/", "96": "(", "97": ")", "98": "\"", "00": "0",
+            "01": "1", "02": "2", "03": "3", "04": "4", "05": "5", "06": "6",
+            "07": "7", "08": "8", "09": "9"
+        };
+
+        function getRandomOTP() {
+            const key = window.crypto.getRandomValues(new Uint32Array(27)).join("").match(/.{1,5}/g);
+            let otp = "";
+            for (let i = 0; i < 50; i++) {
+                otp += key[i % key.length] + " ";
+                if ((i + 1) % 10 === 0) otp += "\n";
             }
-          }
+            document.getElementById("otp").value = otp;
         }
-        if (!matched) {
-          i++;
-        }
-      }
 
-      const paddingLength = (5 - (document.getElementById("input").value.replace(/[ \n]/g, "").length % 5)) %5
-      outputText = outputText.slice(0, outputText.length - paddingLength);
-  
-      document.getElementById("output").value = outputText;
-    }
-  </script>
+        function encrypt() {
+            let inputText = document.getElementById("input").value.toUpperCase();
+            let otp = document.getElementById("otp").value.replace(/[ \n]/g, "");
+
+            if (!/^\d+$/.test(otp)) {
+                alert("Invalid OTP. Must contain only numbers.");
+                return;
+            }
+
+            if (otp.length < inputText.length) {
+                alert("OTP is too short.");
+                return;
+            }
+
+            let encodedText = "";
+            for (const char of inputText) {
+                encodedText += encodeChars[char] || "91"; // Default to "." if not found
+            }
+
+            while (encodedText.length % 5 !== 0) {
+                encodedText += "91"; // Pad with "."
+            }
+
+            while (otp.length < encodedText.length) {
+                otp += otp;
+            }
+            otp = otp.slice(0, encodedText.length);
+
+            let encryptedText = "";
+            for (let i = 0; i < encodedText.length; i++) {
+                encryptedText += (parseInt(encodedText[i]) + parseInt(otp[i])) % 10;
+            }
+
+            document.getElementById("output").value = encryptedText.match(/.{1,5}/g).join(" ").replace(/((?:\S+\s+){9}\S+)\s+/g, "$1\n");
+        }
+
+        function decrypt() {
+            let ciphertext = document.getElementById("input").value.replace(/[ \n]/g, "");
+            let otp = document.getElementById("otp").value.replace(/[ \n]/g, "");
+
+            if (!/^\d+$/.test(ciphertext) || !/^\d+$/.test(otp)) {
+                alert("Invalid input/OTP. Must be numbers only.");
+                return;
+            }
+
+            if (otp.length < ciphertext.length) {
+                alert("OTP is too short.");
+                return;
+            }
+
+            while (otp.length < ciphertext.length) {
+                otp += otp;
+            }
+            otp = otp.slice(0, ciphertext.length);
+
+            let decryptedNumbers = "";
+            for (let i = 0; i < ciphertext.length; i++) {
+                decryptedNumbers += (parseInt(ciphertext[i]) - parseInt(otp[i]) + 10) % 10;
+            }
+
+            let decryptedText = "";
+            let i = 0;
+            while (i < decryptedNumbers.length) {
+                let code = decryptedNumbers.substring(i, i+2)
+                if (decodeChars[code]){
+                    decryptedText += decodeChars[code];
+                    i += 2;
+
+                }
+                else{
+                    code = decryptedNumbers.substring(i, i + 1);
+                    decryptedText += decodeChars[code];
+                    i += 1;
+                }
+
+            }
+
+            document.getElementById("output").value = decryptedText;
+        }
+    </script>
 
 </head>
 
 <body onload="getRandomOTP();">
-  <h1>Improved One-Time Pad Encoder/Decoder ☆ Kumgang R&D</h1>
-  <div id="otp_panel">
-    <p>Input <br>
-      <textarea id="input">vvv de olx olx</textarea>
-    </p>
-    <p>OTP <br>
-      <textarea id="otp"></textarea>
-    </p>
-    <p>
-      <input type="button" value="Encrypt" onclick="encrypt();">
-      <input type="button" value="Decrypt" onclick="decrypt();">
-      <input type="button" value="Generate OTP" onclick="getRandomOTP();">
-    </p>
-    <p>Output: <br>
-      <textarea id="output"></textarea>
-    </p>
-  </div>
-  <h2>Instructions</h2>
-  <h3>Encoding</h3>
-  <ol>
-    <li>Put your plaintext message into the <em>Input</em> field. </li>
-    <li>Generate or input your one-time key into the <em>OTP</em> field. Each key must be securely generated and known only to the communicating parties and must never be reused. </li>
-    <li>Press the <strong>Encrypt</strong> button. Your ciphertext appears in the <em>Output</em> box. </li>
-  </ol>
-  <h3>Decoding</h3>
-  <ol>
-    <li>Put the encrypted message into the <em>Input</em> field. </li>
-    <li>Input your key into the <em>OTP</em> field. The key must be identical to the one used by the message sender. </li>
-    <li>Press the <strong>Decrypt</strong> button. Your plaintext appears in the <em>Output</em> box. </li>
-  </ol>
-  <p>Original code by: <a href="https://danq.me/2010/02/10/one-time-pad-in-javascript/" target="_blank">Daniel
-      Quinn</a></p>
+    <h1>Improved One-Time Pad Encoder/Decoder ☆ Kumgang R&D</h1>
+    <div id="otp_panel">
+        <p>Input <br>
+            <textarea id="input">vvv de olx olx</textarea>
+        </p>
+        <p>OTP <br>
+            <textarea id="otp"></textarea>
+        </p>
+        <p>
+            <input type="button" value="Encrypt" onclick="encrypt();">
+            <input type="button" value="Decrypt" onclick="decrypt();">
+            <input type="button" value="Generate OTP" onclick="getRandomOTP();">
+        </p>
+        <p>Output: <br>
+            <textarea id="output"></textarea>
+        </p>
+    </div>
+    <h2>Instructions</h2>
+    <h3>Encoding</h3>
+    <ol>
+        <li>Put your plaintext message into the <em>Input</em> field. </li>
+        <li>Generate or input your one-time key into the <em>OTP</em> field. Each key must be securely generated and
+            known only to the communicating parties and must never be reused. </li>
+        <li>Press the <strong>Encrypt</strong> button. Your ciphertext appears in the <em>Output</em> box. </li>
+    </ol>
+    <h3>Decoding</h3>
+    <ol>
+        <li>Put the encrypted message into the <em>Input</em> field. </li>
+        <li>Input your key into the <em>OTP</em> field. The key must be identical to the one used by the message sender.
+        </li>
+        <li>Press the <strong>Decrypt</strong> button. Your plaintext appears in the <em>Output</em> box. </li>
+    </ol>
+    <p>Original code by: <a href="https://danq.me/2010/02/10/one-time-pad-in-javascript/" target="_blank">Daniel
+            Quinn</a></p>
 </body>
 
 </html>
